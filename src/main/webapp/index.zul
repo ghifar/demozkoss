@@ -1,0 +1,53 @@
+<zk>
+	<window apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('vm')@init('com.ghifar.zkossdemo.MyViewModel')"
+		validationMessages="@id('vmsgs')">
+		<hlayout>count: <label value="@load(vm.count)" /></hlayout>
+		<button label="add" onClick="@command('cmd')"/>
+	</window>
+
+	<window border="normal" width="400px" title="Welcome!" apply="com.ghifar.zkossdemo.registrationController">
+		<grid hflex="1">
+			<columns visible="false">
+				<column/><!-- define 2 columns to enable auxhead/er -->
+				<column/>
+			</columns>
+
+			<auxhead>
+				<auxheader colspan="2" label="Registration Form" style="font-size:16px"/>
+			</auxhead>
+
+			<rows>
+				<row>
+					Username: <textbox id="usernameBox" hflex="1" constraint="no empty"/>
+				</row>
+				<row>
+					Gender:
+					<radiogroup id="genderRadio">
+						<radio label="Male" value="male" checked="true"/>
+						<radio label="Female" value="female"/>
+					</radiogroup>
+				</row>
+				<row>
+					Birthday: <datebox hflex="1" constraint="no empty, no today, no future" id="birthdayBox"/>
+				</row>
+				<row align="center" spans="2">
+					<hlayout>
+						<checkbox id="checkTermBox"/> Accept Term of Use
+					</hlayout>
+				</row>
+				<row align="right" spans="2">
+					<hlayout>
+					<button id="resetButton" label="Reset" />
+					<button id="submitButton" label="Submit" disabled="true"/>
+					</hlayout>
+				</row>
+			</rows>
+		</grid>
+	</window>
+
+	<html>
+		<p> HELLO WORLD ZKOSS!!</p>
+
+	</html>
+</zk>

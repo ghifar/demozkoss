@@ -1,0 +1,37 @@
+<zk>
+    <!--root component-->
+    <window title="Search" width="600px" border="normal" apply="com.ghifar.zkossdemo.SearchController">
+
+        <!--Child Components-->
+        <hbox>
+            Search Keyword:
+            <textbox id="searchBox"/>
+            <button id="searchButton" label="Search"/>
+        </hbox>
+
+        <listbox id="userListbox" height="200px" emptyMessage="No user found" rows="4" visible="false">
+            <listhead>
+                <listheader label="Username"/>
+                <listheader label="Gender" width="20%" />
+                <!--<listheader label="Birthday"/>-->
+            </listhead>
+            <template name="model">
+                <listitem>
+                    <listcell label="${each.username}"/>
+                    <listcell label="${each.gender}"/>
+                    <!--<listcell label="${each.birthday}"/>-->
+                </listitem>
+            </template>
+        </listbox>
+        <hlayout style="margin-top:20px" width="100%">
+            <image id="previewImage" width="250px"/>
+            <vlayout hflex="1">
+                <label id="idLabel"/>
+                <label id="usernameLabel"/>
+                <label id="genderLabel"/>
+            </vlayout>
+        </hlayout>
+
+    </window>
+
+</zk>
